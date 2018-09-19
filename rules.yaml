@@ -1,0 +1,28 @@
+---
+- RuleName: interface_down_arista
+  DeviceType: ARISTA
+  Regex: 'Line protocol on Interface (?P<interface>\S+).+changed state to down'
+  Remediations:
+    - port_down_arista.py
+  AlertType: Interface Status
+- RuleName: interface_down_junos
+  DeviceType: JUNOS
+  Regex: 'mib2d\[\d+\]: SNMP_TRAP_LINK_DOWN: ifIndex \d+, ifAdminStatus \w+\(\d+\), ifOperStatus \w+\(\d+\), ifName (?P<interface>\S+)'
+  Remediations:
+    - port_down_junos.py
+  AlertType: Interface Status
+- RuleName: OSXCPU
+  DeviceType: OSX
+  Regex: 'stopping: Maximum sustainable CPU utilization limit exceeded: (?P<utilization>\d+)'
+  Remediations:
+    - restart_process.py
+  AlertType: OS Level problem
+- RuleName: ServiceDisplay
+  DeviceType: OSX
+  Regex: 'Service only ran for (?P<ran_time>\d+) seconds. Pushing respawn out by (?P<respawn>\d+) seconds'
+  Remediations:
+   - kill_process.py
+  AlertType: OS Level problem
+
+
+  

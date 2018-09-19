@@ -1,0 +1,14 @@
+---
+QUEUE_LOG: logprocess
+QUEUE_INCIDENT: incident
+RABBITMQ_HOST: 192.168.1.100
+RABBITMQ_PORT: 5672
+RABBITMQ_USER: GOAR
+RABBITMQ_PASS: GOAR
+# Base reg will be used to define a "header" common to all device monitored. Depends on your log format
+BASEREG: '(?<time>\w{3}\s+\d{2}\s+\d{2}\:\d{2}\:\d{2}) (?<ipaddress>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) (?<hostname>\w+).*'
+LOGFILE: '/var/log/system.log'
+RULESFILE: '../rules.yaml'
+SYSLOG_LISTENIP: 192.168.1.1
+SYSLOG_LISTENPORT: 514
+...
