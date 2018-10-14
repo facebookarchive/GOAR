@@ -1,4 +1,4 @@
-# GOAR (Go Automatic remediation):
+# GOAR (Go Automatic remediation) [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](https://godoc.org/github.com/facebookexperimental/GOAR/)
 
 GOAR is designed to handle event-based workflows on the networks, is a sample system built on basic scale principles constructed in Go - a static typing language with concurrency built in its philosophy. It uses RabbitMQ, as a communication channel between microservice-like instances.
 
