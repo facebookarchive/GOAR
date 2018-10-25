@@ -16,7 +16,7 @@ Critical Syslog is triggered, a file tailer picks it up and send it for processi
 
 - Parity error message is created by RouterA via syslog, its fast-handled by a tailer and read from the Syslog processor, it then creates an event with two jobs (defined in the rules): A capacity audit, and then if that's ok, a config push to RouterA that sets the metric of OSPF to maximum effectively draining the device from traffic.
 
-- Interface goes down, Syslog taler picks up the message and pushes to the queue, a processor create an event using the rule specification, with an audit that looks for common issues on an interface, a capacity audit and a config push to modify the metric of the link. The first audit will determine if we have issues on the interface like flaps, error, etc., the capacity audit will make sure we have enough capacity to move around the traffic and not leave anything disconnected, and the config push will remove production traffic from the interface.
+- Interface goes down, Syslog tailer picks up the message and pushes to the queue, a processor create an event using the rule specification, with an audit that looks for common issues on an interface, a capacity audit and a config push to modify the metric of the link. The first audit will determine if we have issues on the interface like flaps, error, etc., the capacity audit will make sure we have enough capacity to move around the traffic and not leave anything disconnected, and the config push will remove production traffic from the interface.
 
 <pre>
                                                                                                                          
